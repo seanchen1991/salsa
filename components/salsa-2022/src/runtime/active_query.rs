@@ -77,7 +77,8 @@ impl ActiveQuery {
         self.durability = Durability::LOW;
         self.changed_at = changed_at;
     }
-
+    
+    #[allow(dead_code)]
     pub(super) fn add_synthetic_read(&mut self, durability: Durability, revision: Revision) {
         self.untracked_read = true;
         self.durability = self.durability.min(durability);

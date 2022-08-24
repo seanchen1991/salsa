@@ -91,8 +91,6 @@ fn check_string(
     expected_diagnostics: expect_test::Expect,
     edits: &[(&str, expect_test::Expect, expect_test::Expect)],
 ) {
-    use salsa::debug::DebugWithDb;
-
     use crate::{db::Database, ir::SourceProgram, parser::parse_statements};
 
     // Create the database

@@ -55,6 +55,7 @@ pub(crate) struct StampedValue<V> {
 }
 
 impl<V> StampedValue<V> {
+    #[allow(dead_code)]
     pub(crate) fn merge_revision_info<U>(&mut self, other: &StampedValue<U>) {
         self.durability = self.durability.min(other.durability);
         self.changed_at = self.changed_at.max(other.changed_at);

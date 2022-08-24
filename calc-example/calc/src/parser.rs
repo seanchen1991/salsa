@@ -297,7 +297,6 @@ impl Parser<'_> {
         // In this loop, if we consume any characters, we always
         // return `Some`.
         let mut s = String::new();
-        let position = self.position;
         while let Some(ch) = self.peek() {
             if ch.is_alphabetic() || ch == '_' {
                 s.push(ch);
@@ -321,8 +320,6 @@ impl Parser<'_> {
     ///
     /// Even on failure, only skips whitespace.
     fn number(&mut self) -> Option<f64> {
-        let start_position = self.skip_whitespace();
-
         self.probe(|this| {
             // 👆 We need the call to `probe` here because we could consume
             //    some characters like `3.1.2.3`, invoke `str::parse`, and then

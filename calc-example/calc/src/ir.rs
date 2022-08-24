@@ -1,6 +1,5 @@
 use derive_new::new;
 use ordered_float::OrderedFloat;
-use salsa::debug::DebugWithDb;
 
 // ANCHOR: input
 #[salsa::input]
